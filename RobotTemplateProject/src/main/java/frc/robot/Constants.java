@@ -20,4 +20,9 @@ public final class Constants {
 
     public static int elevatorTopLimitSwitch = 7;
     public static int elevatorBottomLimitSwitch = 7;
+
+    static double elevatorSpeed = 1;
+    public static double getElevatorSpeed() {
+        return Math.max(0d, Math.min(1d, elevatorSpeed));
+    }
 }

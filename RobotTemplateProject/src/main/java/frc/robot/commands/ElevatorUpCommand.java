@@ -5,19 +5,20 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ElevatorSystem;
 
 public class ElevatorUpCommand extends CommandBase {
-    private final ElevatorSystem elevatorSystem;
+    protected final ElevatorSystem elevatorSystem;
     public ElevatorUpCommand(ElevatorSystem elevatorSystem) {
         this.elevatorSystem=elevatorSystem;
+        addRequirements(elevatorSystem);
     }
 
     @Override
     public void initialize() {
-        elevatorSystem.moveUp();
+        elevatorSystem.stop();
     }
 
     @Override
     public void execute() {
-
+        elevatorSystem.moveUp();
     }
 
     @Override
