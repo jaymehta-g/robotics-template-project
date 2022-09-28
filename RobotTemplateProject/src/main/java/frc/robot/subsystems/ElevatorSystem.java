@@ -27,12 +27,12 @@ public class ElevatorSystem extends SubsystemBase{
     public void moveUp() {
         if (atTop()) return;
         leftMotor.set(1);
-        rightMotor.set(1);
+        rightMotor.set(-1);
     }
     public void moveDown() {
         if (atBottom()) return;
         leftMotor.set(-1);
-        rightMotor.set(-1);
+        rightMotor.set(1);
     }
     public void stop() {
         leftMotor.set(0);
