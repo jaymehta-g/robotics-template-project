@@ -1,8 +1,11 @@
 package frc.robot.commands;
 import frc.robot.subsystems.DriveTrainSystem;
-public class DriveForwardCommand {
-    private final DriveTrainSubsystem driveTrainSubsystem;
-    public DriveForwardCommand(DriveTrainSystem
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj.Timer;
+public class DriveForwardCommand extends CommandBase {
+
+    private final DriveTrainSystem driveTrainSubsystem;
+    double startTime = 0;
     public DriveForwardCommand(DriveTrainSystem driveTrainSubsystem) {
         this.driveTrainSubsystem=driveTrainSubsystem;
         startTime = Timer.getFPGATimestamp();

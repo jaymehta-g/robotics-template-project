@@ -55,4 +55,10 @@ public class DriveTrainSystem extends SubsystemBase {
   public void arcadeDrive(double speed, double rotation) {
     differentialDrive.arcadeDrive(speed, rotation);
   }
+  public void curvatureDrive(double speed, double rotation) {
+    differentialDrive.curvatureDrive(speed, rotation, false);
+  }
+  public void tankDrive(double l, double r) {
+    differentialDrive.tankDrive(l, r);
+  }
 }
