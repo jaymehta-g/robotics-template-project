@@ -10,16 +10,17 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class DriveTrainSystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   private final WPI_VictorSPX frontLeft, frontRight, backLeft, backRight;
   private final DifferentialDrive differentialDrive;
   public DriveTrainSystem() {
-    frontLeft = new WPI_VictorSPX(0);
-    backLeft = new WPI_VictorSPX(1);
-    frontRight = new WPI_VictorSPX(2);
-    backRight = new WPI_VictorSPX(3);
+    frontLeft = new WPI_VictorSPX  (Constants.driveTrainFrontLeftMotor);
+    backLeft = new WPI_VictorSPX   (Constants.driveTrainBackLeftMotor);
+    frontRight = new WPI_VictorSPX (Constants.driveTrainFrontRightMotor);
+    backRight = new WPI_VictorSPX  (Constants.driveTrainBackRightMotor);
     frontLeft.configFactoryDefault();
     backLeft.configFactoryDefault();
     frontRight.configFactoryDefault();
@@ -58,7 +59,7 @@ public class DriveTrainSystem extends SubsystemBase {
   public void curvatureDrive(double speed, double rotation) {
     differentialDrive.curvatureDrive(speed, rotation, false);
   }
-  public void tankDrive(double l, double r) {
-    differentialDrive.tankDrive(l, r);
+  public void tankDrive(double left, double right) {
+    differentialDrive.tankDrive(left, right);
   }
 }
