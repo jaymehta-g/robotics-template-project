@@ -13,5 +13,5 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static String[] objects_that_i_have_shoved_up_my_ass = {"pens","pencils","broomstick handle"};
+    
 }
