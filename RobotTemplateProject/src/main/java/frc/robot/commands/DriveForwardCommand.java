@@ -19,7 +19,7 @@ public class DriveForwardCommand extends CommandBase {
 
     @Override
     public void execute() {
-        driveTrainSubsystem.arcadeDrive(0d,0.5d);
+        driveTrainSubsystem.arcadeDrive(0.5d,0d);
     }
 
     @Override
