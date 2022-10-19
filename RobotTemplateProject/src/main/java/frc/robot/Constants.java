@@ -13,30 +13,6 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-
-    public static int elevatorLeftMotor = 5;
-    public static int elevatorRightMotor = 6;
-
-    public static int elevatorTopLimitSwitch = 7;
-    public static int elevatorBottomLimitSwitch = 8;
-
-    public static int driveTrainFrontLeftMotor = 0;
-    public static int driveTrainBackLeftMotor = 1;
-    public static int driveTrainFrontRightMotor = 2;
-    public static int driveTrainBackRightMotor = 3;
-
-    static double elevatorSpeed = 1;
-    public static double getElevatorSpeed() {
-        return Math.max(0d, Math.min(1d, elevatorSpeed));
-    }
-
-	public static double shooterSpeed = 0.75d;
-
-	public static int shooterTopMotor = 9;
-	public static int shooterLeftMotor = 10;
-	public static int shooterBottomMotor = 11;
-	public static int shooterRightMotor = 12;
-	
 	//from hermes github
     public enum Axes {
 		LEFT_STICK_X(0), LEFT_STICK_Y(4), LEFT_TRIGGER(2), RIGHT_TRIGGER(3), RIGHT_STICK_X(1), RIGHT_STICK_Y(5);
