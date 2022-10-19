@@ -30,7 +30,14 @@ public final class Constants {
         return Math.max(0d, Math.min(1d, elevatorSpeed));
     }
 
-    public static double shooterSpeed = 0.75d;
+	public static double shooterSpeed = 0.75d;
+
+	public static int shooterTopMotor = 9;
+	public static int shooterLeftMotor = 10;
+	public static int shooterBottomMotor = 11;
+	public static int shooterRightMotor = 12;
+	
+	//from hermes github
     public enum Axes {
 		LEFT_STICK_X(0), LEFT_STICK_Y(4), LEFT_TRIGGER(2), RIGHT_TRIGGER(3), RIGHT_STICK_X(1), RIGHT_STICK_Y(5);
 
