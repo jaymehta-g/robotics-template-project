@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants;
+import frc.robot.commands.DriveTrainCommand;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -43,5 +44,11 @@ public class DriveTrainSubsystem extends SubsystemBase{
     }
     public void arcadeDrive(double s, double r) {
         DIFFERENTIAL_DRIVE.arcadeDrive(s, r);
+    }
+
+    //TODO fix this
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        setDefaultCommand(new DriveTrainCommand(this, null));
     }
 }
