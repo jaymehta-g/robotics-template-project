@@ -23,5 +23,5 @@ public class TurretSubsystem extends SubsystemBase {
         }
     }
 
-    public void shoot
+    public void shoot(double shooter)
 }
