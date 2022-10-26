@@ -21,6 +21,10 @@ public class DriveTrainSubsystem extends SubsystemBase{
         FRONT_RIGHT .setNeutralMode(NeutralMode.Brake);
         BACK_LEFT   .setNeutralMode(NeutralMode.Brake);
         BACK_RIGHT  .setNeutralMode(NeutralMode.Brake);
+		FRONT_LEFT.configFactoryDefault();
+		FRONT_RIGHT.configFactoryDefault();
+		BACK_LEFT.configFactoryDefault();
+		BACK_RIGHT.configFactoryDefault();
 
         BACK_LEFT.follow(FRONT_LEFT);
         BACK_RIGHT.follow(FRONT_RIGHT);
