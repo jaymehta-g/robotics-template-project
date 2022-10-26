@@ -20,12 +20,13 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
   private final DriveTrainSubsystem m_driveTrainSystem = new DriveTrainSubsystem();
+  private final OI oi = new OI();
   
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
-	m_driveTrainSystem.setDefaultCommand(new DriveTrainCommand())
+	m_driveTrainSystem.setDefaultCommand(new DriveTrainCommand(m_driveTrainSystem, oi))
     configureButtonBindings();
   }
 
