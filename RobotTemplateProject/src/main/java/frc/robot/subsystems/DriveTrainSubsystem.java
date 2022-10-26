@@ -41,10 +41,7 @@ public class DriveTrainSubsystem extends SubsystemBase{
         
     }
     public void stop() {
-        FRONT_LEFT  .set(0);
-        FRONT_RIGHT .set(0);
-        BACK_LEFT   .set(0);
-        BACK_RIGHT  .set(0);
+        DIFFERENTIAL_DRIVE.stopMotor();
     }
     public void arcadeDrive(double s, double r) {
         DIFFERENTIAL_DRIVE.arcadeDrive(s, r);
