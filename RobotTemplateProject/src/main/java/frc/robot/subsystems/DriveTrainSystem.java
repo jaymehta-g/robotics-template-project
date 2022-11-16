@@ -13,53 +13,39 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class DriveTrainSystem extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
-  private final WPI_VictorSPX frontLeft, frontRight, backLeft, backRight;
-  private final DifferentialDrive differentialDrive;
-  public DriveTrainSystem() {
-    frontLeft = new WPI_VictorSPX  (Constants.driveTrainFrontLeftMotor);
-    backLeft = new WPI_VictorSPX   (Constants.driveTrainBackLeftMotor);
-    frontRight = new WPI_VictorSPX (Constants.driveTrainFrontRightMotor);
-    backRight = new WPI_VictorSPX  (Constants.driveTrainBackRightMotor);
-    frontLeft.configFactoryDefault();
-    backLeft.configFactoryDefault();
-    frontRight.configFactoryDefault();
-    backRight.configFactoryDefault();
+    /** Creates a new ExampleSubsystem. */
+    private final SwerveModuleSubsystem s1,s2,s3,s4;
+    private final SwerveModuleSubsystem[] modules;
+    public DriveTrainSystem() {
+        s1 = new SwerveModuleSubsystem();
+        s2 = new SwerveModuleSubsystem();
+        s3 = new SwerveModuleSubsystem();
+        s4 = new SwerveModuleSubsystem();
+        modules = new SwerveModuleSubsystem[] {s1,s2,s3,s4};
+        
+        // frontLeft.setNeutralMode(NeutralMode.Brake);
+        // backLeft.setNeutralMode(NeutralMode.Brake);
+        // frontRight.setNeutralMode(NeutralMode.Brake);
+        // backRight.setNeutralMode(NeutralMode.Brake);
 
-    backLeft.follow(frontLeft);
-    backRight.follow(frontRight);
-
-    frontLeft.setNeutralMode(NeutralMode.Brake);
-    backLeft.setNeutralMode(NeutralMode.Brake);
-    frontRight.setNeutralMode(NeutralMode.Brake);
-    backRight.setNeutralMode(NeutralMode.Brake);
-
-    differentialDrive = new DifferentialDrive(frontLeft,frontRight);
+        // differentialDrive = new DifferentialDrive(frontLeft,frontRight);
 
 
-  }
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
-
-  @Override
-  public void simulationPeriodic() {
-    // This method will be called once per scheduler run during simulation
-  }
-  public void stop() {
-    frontLeft.set(0);
-    backLeft.set(0);
-    frontRight.set(0);
-    backRight.set(0);
-  }
-  public void arcadeDrive(double speed, double rotation) {
-    differentialDrive.arcadeDrive(speed, rotation);
-  }
-  public void curvatureDrive(double speed, double rotation) {
-    differentialDrive.curvatureDrive(speed, rotation, false);
-  }
-  public void tankDrive(double left, double right) {
-    differentialDrive.tankDrive(left, right);
-  }
+    }
+    @Override
+    public void periodic() {
+        // This method will be called once per scheduler run
+    }
+    
+    public void stop() {
+        for (SwerveModuleSubsystem swerveModuleSubsystem : modules) {
+            swerveModuleSubsystem.setWheelSpeed(0);
+        }
+    }
+    public void setAllModules(double angle, double speed) {
+        for (SwerveModuleSubsystem swerveModuleSubsystem : modules) {
+            swerveModuleSubsystem.setWheelSpeed(speed);
+            swerveModuleSubsystem.setDirection(angle);
+        }
+    }
 }
